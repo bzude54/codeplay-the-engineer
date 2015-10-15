@@ -1,7 +1,11 @@
 package com.bzdev;
 
 /**
- * Created by bzude on 10/13/15.
+ * Enum class for the 13 possible face values for the
+ * cards in the card deck.
+ *
+ * @author Bill Zude
+ * @version 10-13-15
  */
 public enum FaceValue {
 
@@ -20,7 +24,7 @@ public enum FaceValue {
     ACE("Ace");
 
 
-    private String facevalue;
+    private final String facevalue;
 
     FaceValue(String facevalue) {
         this.facevalue = facevalue;

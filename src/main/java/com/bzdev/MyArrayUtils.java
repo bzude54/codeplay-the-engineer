@@ -1,22 +1,24 @@
 package com.bzdev;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.util.*;
 
 /**
- * This service class provides the methods to manipulate the input integer array.
- * So far, only a summation of the input array is provided.
+ * Utilities to evaluate the input array to sum the values in the array and determine
+ * if an integer overflow or underflow condition occurred. An overflow condition
+ * generates a custom exception called IntegerWrapException which is throw up to the caller.
+ * The last two utilities reverse the order of the elements in an input array so the elements
+ * of the input array are reversed after the reverseIt method calls.
  *
  * @author Bill Zude
- * @version 10-06-15
+ * @version 10-14-15
  */
 public class MyArrayUtils {
 
 
     /**
      * @param myArray
-     * @return
+     * @return integer sum of the array elements if not overflow or underflow
+     * @exception throws  custom IntegerWrapException if the sum of the array
+     * overflows or underflows
      */
     public static int sum(int[] myArray) throws IntegerWrapException {
         int intResult = 0;
@@ -39,43 +41,43 @@ public class MyArrayUtils {
     }
 
 
-    public static int[] reverseIt(int[] array) {
+    /**
+     * Static method to reverse the elements in the input integer array.
+     *
+     * @param inputArray
+     * @return void
+     */
+    public static void reverseIt(int[] inputArray) {
 
         int temp;
-        int indexBack = array.length - 1;
+        int indexBack = inputArray.length - 1;
         int indexFront = 0;
-        int[] reverseArray = new int[array.length];
-        int[] arrayCopy = array.clone();
 
-        for (int j = 0; j <= arrayCopy.length/2; j++) {
-            temp = arrayCopy[indexBack];
-            arrayCopy[indexBack--] = array[indexFront];
-            arrayCopy[indexFront++] = temp;
+        for (int j = 0; j <= inputArray.length/2; j++) {
+            temp = inputArray[indexBack];
+            inputArray[indexBack--] = inputArray[indexFront];
+            inputArray[indexFront++] = temp;
 
         }
-
-        return arrayCopy;
     }
 
 
-
-    public static char[] reverseIt(char[] array) {
+    /**
+     * Static method to reverse the elements in the input character array.
+     *
+     * @param inputArray
+     * @return void
+     */
+    public static void reverseIt(char[] inputArray) {
 
         char temp;
-        int indexBack = array.length - 1;
+        int indexBack = inputArray.length - 1;
         int indexFront = 0;
-        char[] reverseArray = new char[array.length];
-        char[] arrayCopy = array.clone();
 
-        for (int j = 0; j <= arrayCopy.length/2; j++) {
-            temp = arrayCopy[indexBack];
-            arrayCopy[indexBack--] = array[indexFront];
-            arrayCopy[indexFront++] = temp;
-
-/*
-            reverseArray[indexBack] = array[indexFront];
-            reverseArray[indexFront] = temp;
-*/
+        for (int j = 0; j <= inputArray.length/2; j++) {
+            temp = inputArray[indexBack];
+            inputArray[indexBack--] = inputArray[indexFront];
+            inputArray[indexFront++] = temp;
 
 /*
             tmp = array[j];
@@ -84,7 +86,6 @@ public class MyArrayUtils {
 */
         }
 
-        return arrayCopy;
     }
 
 }

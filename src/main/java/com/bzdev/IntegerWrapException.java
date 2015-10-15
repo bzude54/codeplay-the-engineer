@@ -11,9 +11,9 @@ package com.bzdev;
  */
 public class IntegerWrapException extends RuntimeException {
 
-    String errMsg;
+    private String errMsg;
 
-    public IntegerWrapException(){};
+    public IntegerWrapException(){}
 
     public IntegerWrapException(String message) {
 

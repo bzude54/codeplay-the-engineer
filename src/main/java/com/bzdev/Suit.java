@@ -1,7 +1,10 @@
 package com.bzdev;
 
 /**
- * Created by bzude on 10/13/15.
+ * Enum class for the four Suits in the card deck.
+ *
+ * @author Bill Zude
+ * @version 10-14-15
  */
 public enum Suit {
     DIAMOND("Diamonds"),
@@ -10,7 +13,7 @@ public enum Suit {
     CLUB("Clubs");
 
 
-    private String suit;
+    private final String suit;
 
     Suit(String suit) {
         this.suit = suit;

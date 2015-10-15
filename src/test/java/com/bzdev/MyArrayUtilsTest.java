@@ -5,19 +5,16 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 import static org.junit.Assert.*;
 
 /**
- * Created by bzude on 10/7/15.
+ * Tests for the MyArrayUtils class.
+ *
+ * @author Bill Zude
+ * @version 10-14-15
  */
 public class MyArrayUtilsTest {
-
-    private MyArrayUtils arrayUtil;
-
-    private Deck originalDeck;
 
     private static final int[] myArray1 = {1, 2, 3, 4, 5, 6};
 
@@ -45,14 +42,10 @@ public class MyArrayUtilsTest {
     @Before
     public void setUp() throws Exception {
 
-        originalDeck = new Deck();
-
     }
 
     @After
     public void tearDown() throws Exception {
-
-        originalDeck = null;
 
     }
 
@@ -93,98 +86,33 @@ public class MyArrayUtilsTest {
 
     @Test
     public void testReverseArrayInt() throws Exception {
-        int[] resultReverse = MyArrayUtils.reverseIt(myArray6);
-        int result6 = MyArrayUtils.sum(resultReverse);
 
         System.out.println();
-        System.out.println("input array is: "  + Arrays.toString(myArray6));
-        System.out.println("output array is: " + Arrays.toString(resultReverse));
+        System.out.println("input int array is: "  + Arrays.toString(myArray6));
+
+        MyArrayUtils.reverseIt(myArray6);
+        int result6 = MyArrayUtils.sum(myArray6);
+
+        System.out.println("output int array is: " + Arrays.toString(myArray6));
         System.out.println();
 
         assertEquals(ARRAY6_EXPECTED, result6);
 
-        assertTrue(Arrays.equals(ARRAY6_REVERSE_EXPECTED, resultReverse));
+        assertTrue(Arrays.equals(ARRAY6_REVERSE_EXPECTED, myArray6));
 
     }
 
 
     @Test
     public void testReverseArrayChar() throws Exception {
-        char[] resultReverse = MyArrayUtils.reverseIt(myArray7);
-
         System.out.println();
-        System.out.println("input array is: "  + Arrays.toString(myArray7));
-        System.out.println("output array is: " + Arrays.toString(resultReverse));
+        System.out.println("input char array is: "  + Arrays.toString(myArray7));
+
+        MyArrayUtils.reverseIt(myArray7);
+        System.out.println("output char array is: " + Arrays.toString(myArray7));
         System.out.println();
 
-        assertTrue(Arrays.equals(ARRAY7_REVERSE_EXPECTED, resultReverse));
+        assertTrue(Arrays.equals(ARRAY7_REVERSE_EXPECTED, myArray7));
     }
-
-
-/*
-    @Test
-    public void testShuffleDeckWithSet() {
-//        Deck originalDeck = new Deck();
-        Deck shuffledDeck = MyArrayUtils.shuffleDeckWithSet(originalDeck);
-        System.out.println();
-        System.out.println("Original deck: " + originalDeck.toString());
-        System.out.println();
-        System.out.println("Shuffled deck: " + shuffledDeck.toString());
-        System.out.println();
-
-        Set<Card> testUnique = new HashSet<>();
-        for (Card card : shuffledDeck.getCards()) {
-            testUnique.add(card);
-        }
-        assertEquals(NUMBER_CARDS_IN_DECK, testUnique.size());
-        assertFalse(originalDeck.equals(shuffledDeck));
-
-    }
-*/
-
-
-/*
-    @Test
-    public void testShuffleDeckWithArray() {
-        Deck originalDeck = new Deck();
-        Deck shuffledDeck = MyArrayUtils.shuffleDeckWithArray(originalDeck);
-        System.out.println();
-        System.out.println("Original deck: " + originalDeck.toString());
-        System.out.println();
-        System.out.println("Shuffled deck: " + shuffledDeck.toString());
-        System.out.println();
-
-        Set<Card> testUnique = new HashSet<>();
-        for (Card card : shuffledDeck.getCards()) {
-            testUnique.add(card);
-        }
-        assertEquals(NUMBER_CARDS_IN_DECK, testUnique.size());
-        assertFalse(originalDeck.equals(shuffledDeck));
-
-    }
-*/
-
-    @Test
-    public void testDeckShuffle() {
-        Deck origDeck = new Deck();
-        Deck testDeck = new Deck();
-        System.out.println();
-        System.out.println("Original deck: " + origDeck.toString());
-        System.out.println();
-
-        Deck shuffledDeck = origDeck.shuffleDeckArray();
-        System.out.println("Shuffled deck: " + shuffledDeck.toString());
-        System.out.println();
-
-        Set<Card> testUnique = new HashSet<>();
-        for (Card card : shuffledDeck.getCards()) {
-            testUnique.add(card);
-        }
-        assertEquals(NUMBER_CARDS_IN_DECK, testUnique.size());
-        assertFalse(testDeck.equals(shuffledDeck));
-
-
-    }
-
 
 }

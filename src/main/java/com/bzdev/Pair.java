@@ -1,14 +1,18 @@
 package com.bzdev;
 
 /**
- * Created by bzude on 10/10/15.
+ * Class to create an object of the two elements in the pair of related
+ * values generated in the findPairs method in the MyCollectionUtils class.
+ *
+ * @author Bill Zude
+ * @version 10-06-15
  */
 public class Pair {
 
-    int first;
-    int second;
+    private int first;
+    private int second;
 
-    public Pair() {};
+    public Pair() {}
 
     public Pair(int first, int second) {
         this.first = first;
